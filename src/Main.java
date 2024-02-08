@@ -1,11 +1,13 @@
 import fruits.FruitsThread;
+import middle.MainObject;
 import vegetables.VegetablesThread;
+
 
 public class Main {
     public static void main(String[] args) {
-
-        VegetablesThread vegetablesThread = new VegetablesThread();
-        FruitsThread fruitsThread = new FruitsThread(vegetablesThread);
+        MainObject mainObject = new MainObject();
+        VegetablesThread vegetablesThread = new VegetablesThread(mainObject);
+        FruitsThread fruitsThread = new FruitsThread(mainObject);
 
         fruitsThread.start();
         vegetablesThread.start();
