@@ -10,16 +10,15 @@ public class FruitsThread extends Thread {
     }
 
     public void run() {
-        synchronized (vegetablesThread) {
-            String[] fruits = {"Apple", "Orange", "Banana"};
-            try {
-                vegetablesThread.wait();
-                for (String fruit : fruits) {
-                    System.out.println(fruit);
-                }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        String[] fruits = {"Apple", "Orange", "Banana"};
+        try {
+            vegetablesThread.join();
+            for (String fruit : fruits) {
+                System.out.println(fruit);
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
+
