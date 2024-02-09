@@ -1,18 +1,19 @@
 package fruits;
-import middle.MainObject;
+
+import vegetables.VegetablesThread;
 
 public class FruitsThread extends Thread {
-    MainObject mainObject;
+    VegetablesThread vegetablesThread;
 
-    public FruitsThread(MainObject mainObject) {
-        this.mainObject = mainObject;
+    public FruitsThread(VegetablesThread vegetablesThread) {
+        this.vegetablesThread = vegetablesThread;
     }
 
     public void run() {
-        synchronized (mainObject) {
+        synchronized (vegetablesThread) {
             String[] fruits = {"Apple", "Orange", "Banana"};
             try {
-                mainObject.wait();
+                vegetablesThread.wait();
                 for (String fruit : fruits) {
                     System.out.println(fruit);
                 }
