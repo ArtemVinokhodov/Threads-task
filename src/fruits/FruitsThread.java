@@ -3,7 +3,7 @@ package fruits;
 import vegetables.VegetablesThread;
 
 public class FruitsThread extends Thread {
-    VegetablesThread vegetablesThread;
+    final VegetablesThread vegetablesThread;
 
     public FruitsThread(VegetablesThread vegetablesThread) {
         this.vegetablesThread = vegetablesThread;
